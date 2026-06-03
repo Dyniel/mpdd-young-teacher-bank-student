@@ -47,5 +47,3 @@ The repository contains the method documentation, source code, configuration fil
 The delivered checkpoint should be reviewed as a compact teacher-bank distillation artifact. The package is intended to support deterministic reproduction of the selected Young G+P prediction files from the included frozen checkpoint and released challenge inputs.
 
 The original heavy model-family library is not included in this repository. Instead, the selected teacher family is represented by compact prediction artifacts, and the included source code deterministically distills those artifacts into a small student checkpoint.
-
-No private datasets are used in the included code paths.
