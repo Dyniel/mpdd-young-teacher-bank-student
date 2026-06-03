@@ -1,0 +1,9 @@
+-r requirements-elder-gp.txt
+torch>=2.4
+mantis-tsfm>=1.0.0,<1.1
+# Optional foundation models for foundation_ts (install on demand):
+#   momentfm                       # MOMENT-1 small/base/large
+#   chronos-forecasting            # Chronos T5 encoder
+#   timesfm                        # Google TimesFM 1.0/2.0
+# Optional in-context tabular learner for tabpfn_subject:
+#   tabpfn>=2.0

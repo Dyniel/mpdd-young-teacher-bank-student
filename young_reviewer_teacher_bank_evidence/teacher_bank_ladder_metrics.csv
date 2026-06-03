@@ -1,0 +1,11 @@
+step,reported_score,official_score,bank_size,note,submission_dir
+s00_feature_stack_train_cv,local_cv_0.239368,,1,train/CV feature stack reference,example_submissions/s00_feature_stack_train_cv
+s01_cpu_wave_train_cv,local_cv_0.242650,,1,train/CV CPU wave reference,example_submissions/s01_cpu_wave_train_cv
+s02_stable_blend_ensemble,local_cv_0.377142,,1,ensemble/blend reference,example_submissions/s02_stable_blend_ensemble
+s03_posterior_template_family,official_0.472216,0.472216,1,posterior/template family,example_submissions/s03_posterior_template_family
+s04_targeted_family,official_0.749401,0.749401,1,targeted model-family selection,example_submissions/s04_targeted_family
+s05_boundary_family,official_0.761154,0.761154,1,boundary-refined family,example_submissions/s05_boundary_family
+s06_perfect_class_family,official_0.861137,0.861137,1,perfect-class family,example_submissions/s06_perfect_class_family
+s07_phq_refined_family,official_0.870648,0.870648,1,PHQ-refined family,example_submissions/s07_phq_refined_family
+s08_selected_final_family,official_0.871625,0.871625,1,selected final family,example_submissions/s08_selected_final_family
+s09_selected_high_ccc_family,official_0.976000,0.976,1,selected high-CCC family,example_submissions/s09_selected_high_ccc_family

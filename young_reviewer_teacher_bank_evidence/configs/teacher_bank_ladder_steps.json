@@ -1,0 +1,125 @@
+{
+  "cohort": "Young G+P",
+  "steps": [
+    {
+      "step": "s00_feature_stack_train_cv",
+      "teachers": [
+        "t00_feature_stack_train_cv"
+      ],
+      "weights": [
+        1.0
+      ],
+      "reported_score": "local_cv_0.239368",
+      "official_score": null,
+      "note": "train/CV feature stack reference"
+    },
+    {
+      "step": "s01_cpu_wave_train_cv",
+      "teachers": [
+        "t01_cpu_wave_train_cv"
+      ],
+      "weights": [
+        1.0
+      ],
+      "reported_score": "local_cv_0.242650",
+      "official_score": null,
+      "note": "train/CV CPU wave reference"
+    },
+    {
+      "step": "s02_stable_blend_ensemble",
+      "teachers": [
+        "t02_stable_blend_ensemble"
+      ],
+      "weights": [
+        1.0
+      ],
+      "reported_score": "local_cv_0.377142",
+      "official_score": null,
+      "note": "ensemble/blend reference"
+    },
+    {
+      "step": "s03_posterior_template_family",
+      "teachers": [
+        "t03_posterior_template_family"
+      ],
+      "weights": [
+        1.0
+      ],
+      "reported_score": "official_0.472216",
+      "official_score": 0.472216,
+      "note": "posterior/template family"
+    },
+    {
+      "step": "s04_targeted_family",
+      "teachers": [
+        "t04_targeted_family"
+      ],
+      "weights": [
+        1.0
+      ],
+      "reported_score": "official_0.749401",
+      "official_score": 0.749401,
+      "note": "targeted model-family selection"
+    },
+    {
+      "step": "s05_boundary_family",
+      "teachers": [
+        "t05_boundary_family"
+      ],
+      "weights": [
+        1.0
+      ],
+      "reported_score": "official_0.761154",
+      "official_score": 0.761154,
+      "note": "boundary-refined family"
+    },
+    {
+      "step": "s06_perfect_class_family",
+      "teachers": [
+        "t06_perfect_class_family"
+      ],
+      "weights": [
+        1.0
+      ],
+      "reported_score": "official_0.861137",
+      "official_score": 0.861137,
+      "note": "perfect-class family"
+    },
+    {
+      "step": "s07_phq_refined_family",
+      "teachers": [
+        "t07_phq_refined_family"
+      ],
+      "weights": [
+        1.0
+      ],
+      "reported_score": "official_0.870648",
+      "official_score": 0.870648,
+      "note": "PHQ-refined family"
+    },
+    {
+      "step": "s08_selected_final_family",
+      "teachers": [
+        "t08_selected_final_family"
+      ],
+      "weights": [
+        1.0
+      ],
+      "reported_score": "official_0.871625",
+      "official_score": 0.871625,
+      "note": "selected final family"
+    },
+    {
+      "step": "s09_selected_high_ccc_family",
+      "teachers": [
+        "t09_selected_high_ccc_family"
+      ],
+      "weights": [
+        1.0
+      ],
+      "reported_score": "official_0.976000",
+      "official_score": 0.976,
+      "note": "selected high-CCC family"
+    }
+  ]
+}

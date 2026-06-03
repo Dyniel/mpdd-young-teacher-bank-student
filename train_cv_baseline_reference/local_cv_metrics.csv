@@ -1,0 +1,4 @@
+family,score_type,score,notes
+feature_stack_train_cv,local_cv,0.239368,deterministic feature stack train/CV reference
+cpu_wave_train_cv,local_cv,0.242650,CPU wave train/CV reference
+stable_blend_ensemble,local_cv,0.377142,ensemble/blend train/CV reference

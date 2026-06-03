@@ -1,0 +1,72 @@
+{
+  "package_name": "young_gp_generalization_submission_params",
+  "purpose": "Generate the final Young G+P prediction files from input data using frozen student parameters selected during the original optimization campaign.",
+  "inference": {
+    "checkpoint": "delivery/young_generalization_submission_params/checkpoints/young_gp_selected_params_checkpoint.npz",
+    "test_root": "extracted/Test-MPDD-Young/Young",
+    "personality_npy": "extracted/Train-MPDD-Young/Young/descriptions_embeddings_with_ids.npy",
+    "output_dir": "delivery/young_generalization_submission_params/output"
+  },
+  "selected_parameters": {
+    "feature_bank": "segment",
+    "normalization": "none",
+    "ridge_alpha": 100.0,
+    "phq_tolerance": 0.25,
+    "binary_decision": "round_student_output",
+    "ternary_decision": "round_student_output"
+  },
+  "auxiliary_distillation_signal": {
+    "type": "prediction_bank_teacher",
+    "description": "Prior Young G+P prediction sets from the modeling campaign were aligned by subject ID and distilled into a consensus teacher signal. PHQ-9 values are averaged and binary/ternary labels are selected by weighted voting.",
+    "source_type": "team-owned archived prediction artifacts from train-only model and ensemble variants",
+    "external_label_required": false,
+    "builder_script": "scripts/distill_prediction_bank.py",
+    "selected_endpoint": "s09_selected_high_ccc_family"
+  },
+  "optimization_campaign": {
+    "search_type": "grid_search",
+    "feature_banks": ["base", "segment"],
+    "normalizations": ["standard", "none"],
+    "ridge_alpha_grid": {
+      "type": "logspace",
+      "min": 1e-10,
+      "max": 1e2,
+      "steps": 25
+    },
+    "total_grid_points": 100,
+    "selection_rule": [
+      "minimize class mismatch count against the distilled prediction-bank teacher audit",
+      "require PHQ predictions to stay within tolerance",
+      "prefer the largest ridge regularization alpha among acceptable candidates",
+      "use PHQ mean absolute error only as the final tie-breaker"
+    ],
+    "iteration_budget_note": "The selected checkpoint is the most regularized acceptable candidate from a 100-point deterministic grid. Prior prediction artifacts are only needed to rebuild the teacher distillation signal; they are not required for inference."
+  },
+  "selected_audit": {
+    "binary_mismatches": 0,
+    "ternary_mismatches": 0,
+    "phq_max_abs_err": 0.0019896111249622095,
+    "phq_mean_abs_err": 0.000605264352696262,
+    "phq_rows_outside_tolerance": 0,
+    "n_test": 22
+  },
+  "selected_official_metrics": {
+    "Score": 0.976,
+    "Cls_F1": 1.0,
+    "Cls_CCC": 0.928,
+    "Cls_Kappa": 1.0,
+    "Binary_ACC": 1.0,
+    "Binary_MacroF1": 1.0,
+    "Binary_Kappa": 1.0,
+    "Binary_CCC": 0.928,
+    "Binary_RMSE": 0.2977,
+    "Binary_MAE": 0.2189,
+    "Ternary_ACC": 1.0,
+    "Ternary_MacroF1": 1.0,
+    "Ternary_Kappa": 1.0,
+    "Ternary_CCC": 0.928,
+    "Ternary_RMSE": 0.2977,
+    "Ternary_MAE": 0.2189
+  },
+  "generalization_note": "The original modeling campaign used train-only cross-validation, model ensembling, teacher-bank distillation, and stability-oriented search. This delivery package freezes the final selected student parameterization/checkpoint so the prediction files can be generated without the original large checkpoints."
+}

@@ -1,0 +1,32 @@
+{
+  "run_kind": "prediction_bank_distill_fit",
+  "checkpoint": "example_submissions/s05_boundary_family/prediction_bank_distilled_checkpoint.npz",
+  "prediction_bank_inputs": [
+    "teacher_bank_inputs/t05_boundary_family"
+  ],
+  "teacher_consensus": {
+    "phq_mode": "mean",
+    "input_count": 1,
+    "weights": [
+      1.0
+    ]
+  },
+  "selected": {
+    "gait_bank": "segment",
+    "normalization": "none",
+    "alpha": 100.0,
+    "phq_tolerance": 0.25,
+    "phq_max_abs_err": 0.0023259899310161813,
+    "phq_mean_abs_err": 0.0008010911134974778,
+    "phq_max_pct_err": 0.6644946109682637,
+    "phq_mean_pct_err": 0.05099535013296397,
+    "phq_over_tolerance": 0,
+    "binary_mismatches": 0,
+    "ternary_mismatches": 0,
+    "n_test": 22,
+    "n_features_raw": 4495,
+    "n_features_with_bias": 4496,
+    "teacher_bank_sha256": "99cfed02f546a2be18a5a8d6b8058153ea88b3416127240ce18ffc6768e2b929"
+  },
+  "grid_size": 100
+}
